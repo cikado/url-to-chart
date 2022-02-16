@@ -1,20 +1,15 @@
 {
-  "name": "url-to-chart",
-  "version": "0.0.1",
-  "description": "URL to chart",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "chartjs"
-  ],
-  "author": "Mu-An Chiou",
+  "name": "gen-chart",
+  "version": "1.0.0",
+  "main": "index.js",
   "license": "MIT",
-  "dependencies": {
-    "chart.js": "^2.6",
-    "chartjs-node": "^1.7.1",
-    "express": "^4.16.4",
+  "devDependencies": {
+    "chart.js": "^3.7.1",
+    "chartjs-node-canvas": "^4.1.6",
+    "express": "^4.17.2",
     "is-number": "^7.0.0"
+  },
+  "scripts": {
+    "dev": "node ./index.js"
   }
 }

@@ -1,6 +1,6 @@
 const exp = require('express')
 const app = exp()
-const ChartjsNode = require('chartjs-node')
+const { ChartJSNodeCanvas } = require('chartjs-node-canvas')
 const isNumber = require('is-number')
 
 app.get('/', async function(req, res) {
@@ -9,9 +9,10 @@ app.get('/', async function(req, res) {
     res.status(400).send('Missing width(w) and/or height(h) parameters.')
   } else {
     if (!config.options) config.options = {}
-    const chartNode = new ChartjsNode(config.w, config.h)
-    await chartNode.drawChart(config)
-    const buffer = await chartNode.getImageBuffer('image/png')
+    const chartNode = new ChartJSNodeCanvas(config.w, config.h)
+
+    const buffer = await chartNode.renderToBuffer(config);
+
     res.set({
       'Content-Type': 'image/png',
       'Content-Length': buffer.length
